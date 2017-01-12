@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="Controller.js"></script>
+<script src="Module1.js"></script>
+<script src="Module2.js"></script>
+<body>
+
+<div id="myDiv1" ng-controller="myApp">
+<p>The hexadecimal value of {{hex}} is:</p>
+</div>
+
+<div id="myDiv2">
+<p ng-controller="bap_controller">il 2 -> {{n}}:</p>
+<p ng-controller="bap_controller2">il 3 -> {{n}}:</p>
+</div>
+
+<div id="myDiv3">
+<p ng-controller="bap_controller3"> lettura esterna -> <br> <br>{{myWelcome}}:</p>
+</div>
+
+</div>
+
+<p><- INFORMAZIONI -></p>
+
+
+</body>
+</html>
