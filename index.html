@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/angular.min.js"></script>
+<script src="js/controller.js"></script>
+<body ng-app="myApp">
+
+
+    
+<div class="container" ng-controller="AppCtrl">
+	<div class="page-header">
+		<h2>Hello <small>AngulaJs and Bootstrap<small></h2>
+	</div>
+	<div class="jumbotron">
+		<h1>Hello, {{name || 'Angular and Bootstrap' }}</h1>
+		<p>your name: <input type="text" ng-model="name"></p>
+		
+	</div>
+
+</div>
+
+</body>
+</html>
