@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="webApp">
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<script src="js/angular.min.js"></script>
-<script src="js/controller.js"></script>
-<body>
 
+<!--l'ordine di queste componenti è fondamentale, jquery va messo prima di bootstrap-->
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/angular.min.js"></script>
+
+<script src="js/controller/webApp.js"></script>
+<script src="js/controller/controller.js"></script>
+<body ng-controller="AppCtl">
+
+    <!-- Questa è la barra di navigazione, viene indicata come nav in html e prende in questo caso -->
     <nav class="navbar navbar-default" role="navigation">
         <div class="navbar-header"> <!--  questo è utile per la navigazione mobile -->
             <button type="button" class="navbar-toggle"
@@ -13,9 +20,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"> contacts Manager </a>
+            <ul>
+                <a class="navbar-brand" href="/"> Contacts Manager </a>
+                <a class="navbar-brand" href="/"> 2 Fixed Button </a>
+            </ul>
         </div>
         
+        <!-- Questa componente è richiamata dal bottone sopra. Questa parte è indicata come quella
+        preposta a risponere alla chiamata dell'utente perché taggata come #nav-toggle sopra -->
         <div class="collapse navbar-collapse" id="nav-toggle">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Browse</a></li>
@@ -24,8 +36,38 @@
             <form class="navbar-form navbar-right" role="search">
                 <input type="text" class="form-control" palceholder="Search">
             </form>
-        </div>
+        </div>  
     </nav>
+    
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p> Left Side </p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p> Right Side </p>
+                    </div>
+                </div>
+                This is our content area !
+                <br>
+                <!-- le direttive sono importanti nella view perché ci dicono in quale caso richiamare la funzione
+                in questo caso la funzione clickHandler() viene richiamata se il bottone è cliccato. 
+                hoverHandler()risponde in caso il mouse passi sul bottone -->
+                <button ng-click="clickHandler()" ng-mouseover="hoverHandler()">Click Me</button>
+            </div>
+            <div class="col-sm-4 col-sm-offset-1"> <!--l'offset mi sposta la colonna a destra di una "colonna" -->
+                Here is our sidebar                
+            </div>
+        </div>
+    </div>
+    
+    <div class="clearfix ">
+        <div class="pull-left hidden-xs">left pulled <br> Hidden in case of xs</div>
+        <div class="pull-right hidden-md">right pulled <br> Hidden in case of md</div>
+    </div>
 
 </body>
 </html>
