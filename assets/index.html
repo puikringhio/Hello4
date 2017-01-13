@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html ng-app="webApp">
-<link rel="stylesheet" href="css/bootstrap.min.css">
+    
+<head>
+    <title>Cap2: AngulaJs and Bootstrap</title>
+  
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
-<!--l'ordine di queste componenti è fondamentale, jquery va messo prima di bootstrap-->
-<script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/angular.min.js"></script>
+    <!--l'ordine di queste componenti è fondamentale, jquery va messo prima di bootstrap-->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
 
-<script src="js/controller/webApp.js"></script>
-<script src="js/controller/controller.js"></script>
+    <script src="js/controller/webApp.js"></script>
+    <script src="js/controller/controller.js"></script>
+  
+</head>
+
 <body ng-controller="AppCtl">
 
     <!-- Questa è la barra di navigazione, viene indicata come nav in html e prende in questo caso -->
@@ -21,8 +28,8 @@
                 <span class="icon-bar"></span>
             </button>
             <ul>
-                <a class="navbar-brand" href="/"> Contacts Manager </a>
-                <a class="navbar-brand" href="/"> 2 Fixed Button </a>
+                <a class="navbar-brand" href="../"> Contacts Manager </a>
+                <a class="navbar-brand" href="../"> 2 Fixed Button </a>
             </ul>
         </div>
         
@@ -30,8 +37,8 @@
         preposta a risponere alla chiamata dell'utente perché taggata come #nav-toggle sopra -->
         <div class="collapse navbar-collapse" id="nav-toggle">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Browse</a></li>
-                <li><a href="/add"> Add Contact</a></li>
+                <li class="active"><a href="../">Browse</a></li>
+                <li><a href="../add"> Add Contact</a></li>
             </ul>
             <form class="navbar-form navbar-right" role="search">
                 <input type="text" class="form-control" palceholder="Search">
@@ -45,21 +52,55 @@
             <div class="col-sm-8">
                 <div class="row">
                     <div class="col-sm-6">
-                        <p> Left Side </p>
+                        <!-- ng-class riceve dei parametri che vengono impostrato dai checkbox sottostanti.
+                        Qusti checkbox hanno valori true, false o indefinito. -->
+                        <p ng-class="{'bg-primary': errorBox, 'text-center': centerBox}"> Left Side </p>
+                        <br>
+                        <!-- questi sono tre checkbox che definiscono tre variabili. Queste tre variabili 
+                        sono definite con ng-model. nel controller ci sono tutte e tre le variabili però 
+                        le prime due le ho definite in modo da far trovare alla pagina già alcuni valori 
+                        la terza invece non è presente nel controller come variabile definita ma è presente
+                        in una funzione dove viene verificata-->
+                        <label><input type="checkbox" ng-model="errorBox"> error <br> {{errorBox}} </label>
+                        <label><input type="checkbox" ng-model="centerBox"> center <br> {{centerBox}}</label>
+                        <label><input type="checkbox" ng-model="styler"> style </label>
                     </div>
                     <div class="col-sm-6">
-                        <p> Right Side </p>
+                        <p class="bg-danger"> Right Side </p>
                     </div>
                 </div>
-                This is our content area !
+                <!-- ng-mouseover richiama la funzione hoverHandler() quando il mouse è sopra l'elemento -->
+                <h4 ng-mouseover="hoverHandler()"> This is our content area ! </h4>
                 <br>
-                <!-- le direttive sono importanti nella view perché ci dicono in quale caso richiamare la funzione
-                in questo caso la funzione clickHandler() viene richiamata se il bottone è cliccato. 
-                hoverHandler()risponde in caso il mouse passi sul bottone -->
-                <button ng-click="clickHandler()" ng-mouseover="hoverHandler()">Click Me</button>
+                <!-- le direttive (come ng-click) sono importanti nella view perché ci dicono in quale 
+                caso richiamare la funzione. In questo caso la funzione clickHandler() viene richiamata 
+                se il bottone è cliccato. hoverHandler()risponde in caso il mouse passi sul bottone -->
+                <button ng-click="clickHandler()">Click Me</button>
+                
+                <!-- ng-hide se true vuol dire che il componente non viene graficato. in questo caso legge
+                il valore isHidden. questa variabile cambia gli stati true/false quando viene richiamata
+                la funzione hoverHandler(). Questa funzione è richiamata prorpio sopra. Se non venisse chiamata
+                quasta variabile sarebbe sempre indefinito quindi hide = indefinito quindi non viene hidato ed
+                è sempre mostrato a video-->
+                <div ng-hide="isHidden">
+                    Click the button above to toggle <h4>{{nome}}</h4>.
+                </div>
             </div>
             <div class="col-sm-4 col-sm-offset-1"> <!--l'offset mi sposta la colonna a destra di una "colonna" -->
-                Here is our sidebar                
+                <p ng-if="isHidden">Here is our sidebar</p>  
+                
+                <!-- ng-style non fa altro che chiamare una funzione che mi restituisce lo style. lo stile è
+                descritto da una stringa di questo tipo: background: 'red',fontWeight: 'bold'-->
+                <ul ng-style="styleDemo()">
+                    
+                    <!-- ng-repeat="contact in contacts": cerco lo scopo contacts all'interno del controller 
+                    che è utilizzato per tutto il body (ovvero AppCtl). Una volta trovato ng-repeat prende elemento 
+                    per elemento e la mette dentro la variabile contact (senza s). Di questo elemento va letto e stampato
+                    il parametro name -->
+                    <li ng-repeat="contact in contacts">
+                        {{contact.name}}
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
