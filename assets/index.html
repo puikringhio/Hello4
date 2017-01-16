@@ -29,7 +29,7 @@
             </button>
             <ul>
                 <a class="navbar-brand" href="../"> Contacts Manager </a>
-                <a class="navbar-brand" href="../"> 2 Fixed Button </a>
+                <a class="navbar-brand" href="jsonShow.html"> Json </a>
             </ul>
         </div>
         
@@ -38,7 +38,7 @@
         <div class="collapse navbar-collapse" id="nav-toggle">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="../">Browse</a></li>
-                <li><a href="../add"> Add Contact</a></li>
+                <li><a href="../"> Add Contact</a></li>
             </ul>
             <form class="navbar-form navbar-right" role="search">
                 <input type="text" class="form-control" palceholder="Search">
@@ -83,7 +83,7 @@
                 quasta variabile sarebbe sempre indefinito quindi hide = indefinito quindi non viene hidato ed
                 è sempre mostrato a video-->
                 <div ng-hide="isHidden">
-                    Click the button above to toggle <h4>{{nome}}</h4>.
+                    Click the button above to toggle <h4>{{Unnome}}</h4>.
                 </div>
             </div>
             <div class="col-sm-4 col-sm-offset-1"> <!--l'offset mi sposta la colonna a destra di una "colonna" -->
@@ -98,9 +98,19 @@
                     per elemento e la mette dentro la variabile contact (senza s). Di questo elemento va letto e stampato
                     il parametro name -->
                     <li ng-repeat="contact in contacts">
-                        {{contact.name}}
+                        {{contact.name}} - {{contact.phone}}
                     </li>
                 </ul>
+                
+                <br>
+                <br>
+                <!-- Semplicemente la lista dei contatti filtrata in base alle lettere presenti nella
+                casella di text inserita in cima-->
+                <h4>Filtered and ordered (by name) contacts</h4>
+                <input type="text" ng-model="search">
+                <li ng-repeat="contact in contacts | filter:search | orderBy:'name'">
+                    {{contact.name}}
+                </li>
             </div>
         </div>
     </div>
