@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<script src="js/angular.min.js"></script>
-<script src="js/controller.js"></script>
+        
+<head>
+    <title>Cap1: AngulaJs and Bootstrap</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/controller/controller.js"></script>
+    
+</head>
+
+<!--Angular definice ng-App come direttiva-->
 <body ng-app="myApp">
 
 
-    
+    <!--allo stesso tempo ng-controller è un attributo di una pagina html -->
 <div class="container" ng-controller="AppCtrl">
 	<div class="page-header">
 		<h2>Hello <small>AngulaJs and Bootstrap<small></h2>
 	</div>
 	<div class="jumbotron">
+            <!-- {{name}} è una notazione -->
 		<h1>Hello, {{name || 'Angular and Bootstrap' }}</h1>
-		<p>your name: <input type="text" ng-model="name"></p>
+		<p>your name: <input type="text" ng-model="name" class="form-control  input-lg" id></p>
 		
 	</div>
 
 </div>
+    
+    <h3>Info: <a href="assets/index2.html"> Vai al prossimo capitolo (Preparazione Progetto per Gestione Contatti) </a></h3>
+    <h3>Info: <a href="assets/"> Vai al quarto capitolo (Routing) </a></h3>
 
 </body>
 </html>
