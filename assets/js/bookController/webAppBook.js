@@ -19,7 +19,7 @@ var bookApp = angular.module('bookWebApp', ['ngRoute'])
                 redirectTo: '/'
             });  
             
-            //locationProvider.html5Mode(true);
+            $locationProvider.html5Mode(true);
             
             
         });
