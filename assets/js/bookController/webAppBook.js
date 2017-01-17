@@ -15,8 +15,11 @@ var bookApp = angular.module('bookWebApp', ['ngRoute'])
                 controller: 'contactCrl',
                 templateUrl: 'partials/contact.html'
             })
+            .when('/404',{
+                templateUrl: 'partials/404.html'
+            })
             .otherwise({
-                redirectTo: '/'
+                redirectTo: '/404'
             });  
             
             $locationProvider.html5Mode(true);
