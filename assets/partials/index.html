@@ -1,56 +1,73 @@
-<html>
-    <head>
-        <title>Book Index !</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        
+<!DOCTYPE html>
+<html ng-app="webApp">
+    
+<head>
+    <title>Cap2: AngulaJs and Bootstrap</title>
+  
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
-        <div class="page-header">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+
+    <script src="js/controller/webApp.js"></script>
+    <script src="js/controller/controller.js"></script>
+  
+</head>
+
+<body>
+
+    
+    
+  
+    
+    <div class="page-header">
             <h1>All contacts</h1>
-        </div>
+    </div>
         
-        <div class="table-responsive">
-            <table>
+    <div class="container">
+        <div> 
+            <table class="table-responsiveg table-striped col-sx-12 col-sm-12 col-md-12 col-lg-12">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Email Address</th>
-                        <th>Phone Number</th>
-                        <th>Actions</th>
+                        <th class="table-bordered col-sx-4 col-sm-4 col-md-4 col-lg-4">Name</th>
+                        <th class="table-bordered col-sx-4 col-sm-4 col-md-4 col-lg-4">Email Address</th>
+                        <th class="table-bordered col-sx-4 col-sm-4 col-md-4 col-lg-4">Phone Number</th>
+                        <th class="table-bordered col-sx-4 col-sm-4 col-md-4 col-lg-4">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Karan Bromwich</td>
-                        <td>karan@example.com</td>
-                        <td>01234 56734</td>
-                        <td><a href=”#” class="btn btn-default btn-xs">View</a></td>
-                    </tr>
-                    <tr>
-                        <td>Declan Proud</td>
-                        <td>declan@example.com</td>
-                        <td>01234 567890</td>
-                        <td><a href=”#” class="btn btn-default btn-xs">View</a></td>
+                    <tr ng-repeat="contact in contacts">
+                        <td>{{contact.name}}</td>
+                        <td>{{contact.phone}}</td>
+                        <td>{{contact.email}}</td>
+                        <td><a href="contact/{{contact.name}}/{{contact.phone}}/{{contact.email}}" class="btn btn-default btn-xs">View</a></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        
-  
-        
-        
-        
-        <hr>
-        <hr>
-        <div>Index !</div>
-        <p><a href="add-contact">Add.html (add-contact)</a></p>
-        <p><a href="contact/1">Contact.html (contact/1)</a></p>
-        <p><a href="prova">Richiesta a route che non esiste (prova)</a></p>
-        
-        
-   
-        
-    </body>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <hr>
+    <hr>
+    <div> <h2> Capitolo 5 </h2> </div>
+    <p><a href="add-contact">Add.html (add-contact)</a></p>
+    <p><a href="contact/1">Contact.html (contact/1)</a></p>
+    <p><a href="prova">Richiesta a route che non esiste (prova)</a></p>
+    
+    
+
+</body>
 </html>

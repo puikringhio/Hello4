@@ -1,34 +1,62 @@
 <!DOCTYPE html>
-<html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="bookWebApp">
+    <head>
+        <title>Book</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-<head>
-    <title>Cap1: AngulaJs and Bootstrap</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/angular.min.js"></script>
-    <script src="js/controller/controller.js"></script>
-    
-</head>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-route.min.js"></script>
 
-<!--Angular definice ng-App come direttiva-->
-<body ng-app="myApp">
+        <script src="js/bookController/webAppBook.js"></script>
+        <script src="js/bookController/bookController.js"></script>
+        
+        <base href="/HTML5Application/"></base>
+    </head>
+    <body>
+                   
+        <div class="container"> 
+            
+            
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header"> <!--  questo è utile per la navigazione mobile -->
+                    <button type="button" class="navbar-toggle"
+                            data-toggle="collapse" data-target="#nav-toggle">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <ul>
+                        <a class="navbar-brand" href="/HTML5Application/">Contacts Manager</a>
+                    </ul>
+                </div>
 
+                <!-- Questa componente è richiamata dal bottone sopra. Questa parte è indicata come quella
+                preposta a risponere alla chiamata dell'utente perché taggata come #nav-toggle sopra -->
+                <div class="collapse navbar-collapse" id="nav-toggle">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="contact/nomeProva/phoneProva/mailProva">Browse</a></li>
+                        <li><a href="add-contact">Add Contact</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right" role="search">
+                        <input type="text" class="form-control" palceholder="Search">
+                    </form>
+                </div>  
+            </nav>
+            
+            
+            
+            <ng-view></ng-view>
 
-    <!--allo stesso tempo ng-controller è un attributo di una pagina html -->
-<div class="container" ng-controller="AppCtrl">
-	<div class="page-header">
-		<h2>Hello <small>AngulaJs and Bootstrap<small></h2>
-	</div>
-	<div class="jumbotron">
-            <!-- {{name}} è una notazione -->
-		<h1>Hello, {{name || 'Angular and Bootstrap' }}</h1>
-		<p>your name: <input type="text" ng-model="name" class="form-control  input-lg" id></p>
-		
-	</div>
-
-</div>
-    
-    <h3>Info: <a href="assets/index2.html"> Vai al prossimo capitolo (Preparazione Progetto per Gestione Contatti) </a></h3>
-    <h3>Info: <a href="assets/"> Vai al quarto capitolo (Routing) </a></h3>
-
-</body>
+        </div>
+    </body>
 </html>
