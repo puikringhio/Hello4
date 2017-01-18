@@ -18,7 +18,9 @@
                     <h3> name:  {{contatto.name}}</h3>
                     <h3> phone: {{contatto.phone}}</h3>
                     <h3> email: {{contatto.email}}</h3> 
-                    <h3> info: {{contatto.info}}</h3> 
+                    <h3> info(truncate): {{contatto.info|myTruncate:12}}</h3> 
+                    <h3> info(sub): {{contatto.info|paragraph}}</h3> 
+                    <h3>info(paragraph): </h3><h3 class="form-control-static" ng-bind-html="contatto.info|paragraph"></h3> 
                 </div>
                 <BR>
             </div>
