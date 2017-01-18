@@ -37,11 +37,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="contact in contacts">
+                    <tr ng-repeat="contact in contatti">
                         <td>{{contact.name}}</td>
                         <td>{{contact.phone}}</td>
                         <td>{{contact.email}}</td>
-                        <td><a href="contact/{{contact.name}}/{{contact.phone}}/{{contact.email}}" class="btn btn-default btn-xs">View</a></td>
+                        <td><a href="contact/{{$index}}" class="btn btn-default btn-xs">View</a></td>
                     </tr>
                 </tbody>
             </table>
@@ -49,12 +49,7 @@
     </div>
     
     
-    
-    
-    
-    
-    
-    
+ 
     
     
     

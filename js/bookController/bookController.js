@@ -1,46 +1,55 @@
-bookApp.controller('indexCrl', function($scope)
+bookApp.controller('indexCrl', function($scope, contatti)
 {
-    $scope.contacts = [
+    $scope.contatti = contatti.get();
+});
+        
+bookApp.controller('contactCrl', function($scope, $routeParams, contatti)
+{    
+    $scope.id = $routeParams.id;
+    $scope.contatto = contatti.find($routeParams.id);
+});
+
+bookApp.factory('contatti',function(){
+   
+    var contatti = [
         {
-            name: 'xxxxxxxxxxxxxxxxxxxxxxx',
+            name: 'qwe',
             phone: '1111111',
             email: 'asd@asdasd.it'
         },
         {
-            name: 'ssssssssssssssssssssssssssssssssss',
+            name: 'rty',
             phone: '222222',
             email: 'ewq@ewq.it'
         },
         {
-            name: 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+            name: 'asdasd',
             phone: '44444444',
             email: 'uio@ewq.it'
         },
         {
-            name: 'rrrrrrrrrrrrrrrrrrrrrrrrr',
+            name: 'fghfgh',
             phone: '5555555',
             email: 'uyt@ewq.it'
         },
         {
-            name: 'ttttttttttttttttttttttttttttttttttttt',
+            name: 'zxczxc',
             phone: '66666666',
             email: 'hg@asdasd.it'
         }
     ];
+    
+    return {
+        get: function(){
+            return contatti;
+        },
+        find: function(index){
+            return contatti[index];
+        }
+    }
+    
 });
-        
-bookApp.controller('addCtr', function($scope)
-{
 
-});
-        
-bookApp.controller('contactCrl', function($scope, $routeParams)
-{
-    console.log($routeParams);
-    $scope.name = $routeParams.name;
-    $scope.phone = $routeParams.phone;
-    $scope.email = $routeParams.email;
-});
 
 
 

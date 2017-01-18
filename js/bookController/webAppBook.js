@@ -19,6 +19,10 @@ var bookApp = angular.module('bookWebApp', ['ngRoute'])
                 controller: 'contactCrl',
                 templateUrl: 'assets/partials/contact.html'
             })
+            .when('/contact/:id',{
+                controller: 'contactCrl',
+                templateUrl: 'assets/partials/contact.html'
+            })
             .when('/404',{
                 templateUrl: 'assets/partials/404.html'
             })
