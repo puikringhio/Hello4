@@ -2,17 +2,7 @@
 <html ng-app="webApp">
     
 <head>
-    <title>Cap2: AngulaJs and Bootstrap</title>
-  
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/angular.min.js"></script>
-
-    <script src="js/controller/webApp.js"></script>
-    <script src="js/controller/controller.js"></script>
-  
+    <title>SubIndex !</title>   
 </head>
 
 <body>
@@ -37,13 +27,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="contact in contatti">
+                    <tr ng-repeat="contact in contatti | filter:search | orderBy:'name'">
                         <td>{{contact.name}}</td>
                         <td>{{contact.phone}}</td>
                         <td>{{contact.email}}</td>
                         <td><a href="contact/{{$index}}" class="btn btn-default btn-xs">View</a></td>
                     </tr>
                 </tbody>
+                <div>
+                    Filter <input type="text" ng-model="search"></input>
+                </div>
             </table>
         </div>
     </div>

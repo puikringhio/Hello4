@@ -1,27 +1,24 @@
 <html>
     <head>
         <title>Contanct !</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-
-        <script src="js/jquery-3.1.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/angular.min.js"></script>
-
-        <script src="js/controller/webApp.js"></script>
-        <script src="js/controller/controller.js"></script>
     </head>
     <body>
         <div class="page-header">
             <h1>Contact</h1>
             
             <div class="page-header row">
+                <!--
                 <h1><img src="http://placehold.it/50x50" class="img-circle"> con id numero {{id}} </h1>
+                -->
+                <!-- Ho aggiutno una direttiva di nome gravatar-->
+                <h1><gravatar class="img-circle"></gravatar> con id numero {{id}} </h1>
                 
                 <BR>
                 <div>
-                    <p>il mio name è {{contatto.name}}</p>
-                    <p>il mio phone è {{contatto.phone}}</p>
-                    <p>il mio email è {{contatto.email}}</p>
+                    <h3> name:  {{contatto.name}}</h3>
+                    <h3> phone: {{contatto.phone}}</h3>
+                    <h3> email: {{contatto.email}}</h3> 
+                    <h3> info: {{contatto.info}}</h3> 
                 </div>
                 <BR>
             </div>
