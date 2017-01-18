@@ -1,7 +1,10 @@
-bookApp.controller('indexCrl', function($scope, contatti)
+bookApp.controller('indexCrl', function($scope, contatti, author)
 {
     $scope.contatti = contatti.get();
+    $scope.autore = author;
 });
+
+bookApp.value('author','andrea');
         
 bookApp.controller('contactCrl', function($scope, $routeParams, contatti)
 {    
