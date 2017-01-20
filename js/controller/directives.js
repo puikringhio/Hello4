@@ -17,7 +17,7 @@ bookApp.directive('gravatar', function(){
 bookApp.directive('editable', function(){
     return{
         restrict: 'AE',
-        templateUrl: '/HTML5Application//assets/partials/editable.html',
+        templateUrl: '/HTML5Application/assets/partials/editable.html',
         scope: {
             // = leghiamo il modello dello scope genitore allo scope della direttiva
             //in questo caso non dobbiamo quinddi utilizzare la sintassi {{}} e possiamo del 

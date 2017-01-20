@@ -42,6 +42,9 @@ bookApp.factory('contact_service',function()
         },
         create: function(contact){
             contacts.push(contact);
+        },
+        destroy: function(index){
+            contacts.splice(index, 1);
         }
     }
     
