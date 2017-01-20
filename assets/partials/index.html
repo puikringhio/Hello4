@@ -27,7 +27,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="contact in index_contacts | filter:search | orderBy:'name'">
+                    <tr ng-repeat="contact in index_contacts | filter:search">
                         <td>{{contact.name}}</td>
                         <td>{{contact.phone}}</td>
                         <td>{{contact.email}}</td>

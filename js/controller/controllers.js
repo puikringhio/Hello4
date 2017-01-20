@@ -11,7 +11,23 @@ bookApp.controller('indexCrl', function($scope, $routeParams, contact_service, a
 bookApp.controller('contactCrl', function($scope, $routeParams, contact_service)
 {    
     $scope.id = $routeParams.id;
-    $scope.contatto = contatti_service.find($routeParams.id);
+    $scope.contact = contact_service.find($routeParams.id);
+    
+    $scope.editor = {
+      showing: false,
+      value: $scope.contact.name
+    };
+    
+    $scope.toggleEditor = function(){
+        $scope.editor.showing = !$scope.editor.showing;
+        $scope.field = ($scope.field) ? $scope.field : 'text';
+    };
+    
+    $scope.save = function(){
+        $scope.contact.name = $scope.editor.value;
+        $scope.toggleEditor();
+    };
+    
 });
 
 //funziona nell'intera app perché richiamato nella radice index.html
