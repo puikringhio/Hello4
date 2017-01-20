@@ -12,22 +12,6 @@ bookApp.controller('contactCrl', function($scope, $routeParams, contact_service)
 {    
     $scope.id = $routeParams.id;
     $scope.contact = contact_service.find($routeParams.id);
-    
-    $scope.editor = {
-      showing: false,
-      value: $scope.contact.name
-    };
-    
-    $scope.toggleEditor = function(){
-        $scope.editor.showing = !$scope.editor.showing;
-        $scope.field = ($scope.field) ? $scope.field : 'text';
-    };
-    
-    $scope.save = function(){
-        $scope.contact.name = $scope.editor.value;
-        $scope.toggleEditor();
-    };
-    
 });
 
 //funziona nell'intera app perché richiamato nella radice index.html
@@ -52,7 +36,7 @@ bookApp.controller('addCtr', function($scope, contact_service)
         $scope.myTxt = "You added this contact!";
         
         contact_service.create($scope.add_comntact);
-        $scope.add_comntact = null;
+        $scope.add_contact = null;
         $scope.added = true;
     }
 });

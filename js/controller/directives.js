@@ -17,7 +17,7 @@ bookApp.directive('gravatar', function(){
 bookApp.directive('editable', function(){
     return{
         restrict: 'AE',
-        templateUrl: '/assets/partials/editable.html',
+        templateUrl: '/HTML5Application//assets/partials/editable.html',
         scope: {
             // = leghiamo il modello dello scope genitore allo scope della direttiva
             //in questo caso non dobbiamo quinddi utilizzare la sintassi {{}} e possiamo del 
@@ -29,6 +29,23 @@ bookApp.directive('editable', function(){
         //questo controller è situato dentro la direttiva, ma fuzione esattamente come un classico controller
         //a differenza ddi link viene eseguito prima che l'applicazione sia completamente compilata
         controller: function($scope){
+            
+            $scope.editor = {
+                showing: false,
+                //value: $scope.contact.name
+                value: $scope.value
+            };
+
+            $scope.toggleEditor = function(){
+                $scope.editor.showing = !$scope.editor.showing;
+                $scope.field = ($scope.field) ? $scope.field : 'text';
+            };
+
+            $scope.save = function(){
+                //$scope.contact.name = $scope.editor.value;
+                $scope.value = $scope.editor.value;
+                $scope.toggleEditor();
+            };            
             
         }
     };
