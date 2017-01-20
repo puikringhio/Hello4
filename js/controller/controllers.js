@@ -1,17 +1,17 @@
 //funziona solo nella parziale ..partials/index.htnl
-bookApp.controller('indexCrl', function($scope, $routeParams, contatti, author)
+bookApp.controller('indexCrl', function($scope, $routeParams, contact_service, author)
 {
-    $scope.contatti = contatti.get();
+    $scope.index_contacts = contact_service.get();
     //questo author è un valore scritto dentro services.js ed è un componente value richiamabile ovunque
     $scope.autore = author;    
     
 });
 
 //funziona solo nella parziale ..partials/contact.html
-bookApp.controller('contactCrl', function($scope, $routeParams, contatti)
+bookApp.controller('contactCrl', function($scope, $routeParams, contact_service)
 {    
     $scope.id = $routeParams.id;
-    $scope.contatto = contatti.find($routeParams.id);
+    $scope.contatto = contatti_service.find($routeParams.id);
 });
 
 //funziona nell'intera app perché richiamato nella radice index.html
@@ -28,15 +28,15 @@ bookApp.controller('appCtl', function($scope, $location)
 });
 
 
-bookApp.controller('addCtr', function($scope, contatti)
+bookApp.controller('addCtr', function($scope, contact_service)
 {    
     $scope.myTxt = "You have not yet added this contact";
     
     $scope.submit = function(){
         $scope.myTxt = "You added this contact!";
         
-        contatti.create($scope.contatto);
-        $scope.contatto = null;
+        contact_service.create($scope.add_comntact);
+        $scope.add_comntact = null;
         $scope.added = true;
     }
 });

@@ -1,6 +1,6 @@
-bookApp.factory('contatti',function()
+bookApp.factory('contact_service',function()
 {   
-    var contatti = [
+    var contacts = [
         {
             name: 'qwe',
             phone: '1111111',
@@ -35,13 +35,13 @@ bookApp.factory('contatti',function()
     
     return {
         get: function(){
-            return contatti;
+            return contacts;
         },
         find: function(index){
-            return contatti[index];
+            return contacts[index];
         },
         create: function(contact){
-            contatti.push(contact);
+            contacts.push(contact);
         }
     }
     
