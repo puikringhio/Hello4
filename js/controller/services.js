@@ -51,8 +51,34 @@ bookApp.factory('contact_service',function()
     
 });
 
-
 bookApp.value('author','andrea');
 
 
 
+bookApp.factory('myContacts_service', function($resource){
+    var Resource = $resource('http://localhost/public/contacts/:id', {id: '@id'}, {
+        /*
+         * questi sono quelli che sono già presenti in $resource
+         * get: {method: 'GET'}
+         * save: {method: 'POST'}
+         * query: {method: 'GET', isArray:true}
+         * remove: {method: 'DELETE'}
+         * delete: {method: 'DELETE'}
+         */
+        update: {method: 'PUT'}
+    });
+    return {
+        get: function(){
+            return Resource.query();
+        },
+        find: function(id){
+            return Resource.get({id: id});
+        },
+        create: function(){
+            return new Resource();
+        },
+        destroy: function(id){
+            Resource.delete({id: id})
+        }
+    };
+})

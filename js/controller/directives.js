@@ -30,6 +30,7 @@ bookApp.directive('editable', function(){
         //a differenza ddi link viene eseguito prima che l'applicazione sia completamente compilata
         controller: function($scope){
             
+            /*
             $scope.editor = {
                 showing: false,
                 //value: $scope.contact.name
@@ -45,7 +46,25 @@ bookApp.directive('editable', function(){
                 //$scope.contact.name = $scope.editor.value;
                 $scope.value = $scope.editor.value;
                 $scope.toggleEditor();
-            };            
+            };
+            */
+           
+            $scope.editor = {
+                showing: false,
+                value: $scope.value
+            };
+            
+            $scope.save = function(){
+                $scope.value = $scope.editor.value;
+                $scope.$emit('saved');
+                $scope.toggleEditor();
+            };
+
+            $scope.toggleEditor = function(){
+                $scope.editor.showing = !$scope.editor.showing;
+                $scope.field = ($scope.field) ? $scope.field : 'text';
+            };
+
             
         }
     };

@@ -1,4 +1,4 @@
-var bookApp = angular.module('WebApp', ['ngRoute', 'ngSanitize'])
+var bookApp = angular.module('WebApp', ['ngRoute', 'ngSanitize', 'ngResource'])
         
         .config(function($routeProvider, $locationProvider){
 
